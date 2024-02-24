@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, Container, VStack, Heading, Input, Textarea, Button, useToast, Stack, useColorModeValue, Divider, List, ListItem, ListIcon, IconButton } from "@chakra-ui/react";
+import { Box, Container, VStack, Heading, Input, Textarea, Button, useToast, Stack, useColorModeValue, Divider, List, ListItem, IconButton, Link } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { FaPaperPlane, FaBell, FaTrash } from "react-icons/fa";
 
 const Index = () => {
@@ -67,7 +68,12 @@ const Index = () => {
             </Box>
           )}
         </Box>
-        <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" bg={useColorModeValue("white", "gray.700")}>
+        <Box p={5} shadow="md" borderWidth="1px" borderRadius="md" bg={useColorModeValue("white", "gray.700")} mb={6}>
+          <Link as={RouterLink} to="/login">
+            <Button colorScheme="teal" mb={4}>
+              Go to Login
+            </Button>
+          </Link>
           <VStack spacing={4}>
             <Input placeholder="Title of your message" value={inputValue} onChange={handleInputChange} />
             <Textarea placeholder="Write your message here..." value={messageContent} onChange={handleMessageChange} size="sm" />
